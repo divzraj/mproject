@@ -29,7 +29,14 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'QA'
     publishLocation: 'Container'
+
 - task: Docker@2
   inputs:
-    command: 'build'
+    containerRegistry: 'dockerconnection'
+    command: 'login'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dockerconnection'
+    repository: 'divya123raj/azuredevops'
+    command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
