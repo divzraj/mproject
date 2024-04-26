@@ -23,9 +23,9 @@ stages:
 
       - task: CopyFiles@2
         inputs:
-          SourceFolder: 'System.DefaultWorkingDirectory'
+          SourceFolder: '$(System.DefaultWorkingDirectory)'
           Contents: '**/*.yml'
-          TargetFolder: 'Build.ArtifactStagingDirectory'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 
 
