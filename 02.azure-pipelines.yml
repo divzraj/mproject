@@ -19,6 +19,12 @@ stages:
       - bash: echo $(System.DefaultWorkingDirectory)
       - bash: ls -R $(System.DefaultWorkingDirectory)
       - bash: echo $(Build.ArtifactStagingDirectory)
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: 'System.DefaultWorkingDirectory'
+          Contents: '**/*.yml'
+          TargetFolder: 'Build.ArtifactStagingDirectory'
+
 
 
 # - stage: CompileStage
