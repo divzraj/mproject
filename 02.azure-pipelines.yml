@@ -1,5 +1,5 @@
 trigger:
-- learningstages
+- master
 
 pool:
   vmImage: ubuntu-latest
