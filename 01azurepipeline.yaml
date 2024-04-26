@@ -16,11 +16,32 @@ stages:
      steps:
       - script: echo Hello, world! Job1
         displayName: 'Run a one-line script'
-      
-
    - job: Jobtwo
      dependsOn: Jobone
      steps:
       - script: echo Hello, world! Job2
         displayName: 'Run a one-line script'
 
+- stage: CompileStage
+  dependsOn: BuildStage
+  jobs:
+   - job: compileJob3
+     steps:
+      - script: echo Hello, world! Job3
+        displayName: 'Run a one-line script'
+
+- stage: TestStage
+  dependsOn: CompileStage
+  jobs:
+   - job: TestJob4
+     steps:
+      - script: echo Hello, world! Job4
+        displayName: 'Run a one-line script'
+        
+- stage: DeployStage
+  dependsOn: TestStage
+  jobs:
+   - job: deployJob5
+     steps:
+      - script: echo Hello, world! Job5
+        displayName: 'Run a one-line script'
