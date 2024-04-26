@@ -31,7 +31,7 @@ stages:
         displayName: 'Run a one-line script'
 
 - stage: TestStage
-  dependsOn: CompileStage
+  dependsOn: BuildStage
   jobs:
    - job: TestJob4
      steps:
