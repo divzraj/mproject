@@ -4,19 +4,19 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- learningstages
 
 pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: Build Stage
+- stage: BuildStage
   jobs:
-   - job: Job_one
+   - job: Jobone
      steps:
       - script: echo Hello, world! Job1
         displayName: 'Run a one-line script'
-   - job: Job_two
+   - job: Jobtwo
      steps:
       - script: echo Hello, world! Job2
         displayName: 'Run a one-line script'
