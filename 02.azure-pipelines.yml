@@ -9,13 +9,17 @@ stages:
   jobs:
    - job: Jobone
      steps:
-      - script: echo Hello, world! Job1
-        displayName: 'Run a one-line script'
-   - job: Jobtwo
-     dependsOn: Jobone
-     steps:
-      - script: echo Hello, world! Job2
-        displayName: 'Run a one-line script'
+      - bash: echo $(Build.BuildNumber)
+      - bash: echo $(Agent.BuildDirectory)
+      - bash: echo $(Agent.HomeDirectory)
+      - bash: echo $(Agent.Name)
+      - bash: echo $(Build.ContainerId)
+      - bash: echo $(Build.SourceBranchName)
+      - bash: echo $(Build.SourcesDirectory)
+      - bash: echo $(System.DefaultWorkingDirectory)
+      - bash: echo ls -R $(System.DefaultWorkingDirectory)
+      - bash: echo $(Build.ArtifactStagingDirectory)
+
 
 # - stage: CompileStage
 #   dependsOn: BuildStage
